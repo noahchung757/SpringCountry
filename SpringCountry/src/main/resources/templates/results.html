@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Countries</title>
+</head>
+<body>
+<form>
+<table>
+<tr th:each="currentCountry : ${countries}">
+<td th:text="${currentCountry.id}"/> 
+<td>. Name:</td>
+<td th:text="${currentCountry.name}"/>
+<td>Leader:</td>
+<td th:text="${currentCountry.leader}"/>
+<td>Population:</td>
+<td th:text="${currentCountry.population}"/>
+<td>million:</td>
+<td><a th:href="@{/edit/{id}(id=${currentCountry.id})}">Edit</a></td>
+<td><a th:href="@{/delete/{id}(id=${currentCountry.id})}">Delete</a></td>
+</tr>
+</table>
+</form>
+<a href="../inputCountry">Add a new country</a>
+</body>
+</html>
